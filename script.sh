@@ -16,7 +16,7 @@ fi
 
 x=$(mktemp)
 echo -e "/*\nFilename: $1\nOwner: $(whoami)\nLast Modified On: $(date)\n*/" > "$x"
-sed '1,5d' "$1" >> "$x"
+cat "$1" >> "$x"
 mv "$x" "$1"
 
 echo "ALL DONE!"
