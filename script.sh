@@ -15,7 +15,9 @@ else
 fi
 
 x=$(mktemp)
-echo -e "/*\nFilename: $1\nOwner: $(whoami)\nLast Modified On: $(date)\n*/" > "$x"
+y=$(ls -l "$1" | awk '{print$3}')
+z=$(ls -l "$1" | awk '{print $7, $8, $9}')
+echo -e "/*\nFilename: $1\nOwner: $y\nLast Modified On: $z\n*/" > "$x"
 cat "$1" >> "$x"
 mv "$x" "$1"
 
